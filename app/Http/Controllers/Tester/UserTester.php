@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class UserTester extends Controller
 {
+
+    public function indexy(){
+        //$users = User::all();
+        //dd($users);
+        //all e get funcionam do mesmo jeito
+        //paginação
+        $users = User::paginate(20);
+        return view('tester.usertester.indexy', compact('users'));
+    }
+
     public function index(){
         return 'view3';
     }
@@ -26,6 +36,6 @@ class UserTester extends Controller
         //]);
         //vc ta passando array de user, a funçao compact faz isso
         return view('tester.usertester.index3', compact('user'));
-}
+    }
 
 }

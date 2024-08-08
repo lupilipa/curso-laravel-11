@@ -17,6 +17,9 @@ Route::get('/users3', [UserTester::class, 'index2'])
 
 Route::get('/users4', [UserTester::class, 'index3'])
 ->name('users4.index3');
+
+Route::get('/indexy', [UserTester::class, 'indexy'])->name('indexy.indexy');
+
 //testes curso
 
 Route::get('/', function () {
