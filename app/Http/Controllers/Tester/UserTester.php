@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tester;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class UserTester extends Controller
         return view('tester.usertester.create');
     }
 
-    public function store(Request $request){
+    public function store(StoreUserRequest $request){
         //return 'cadastrando...';
         //dd($request->get('name'));
 		//dd($request->all()); //[pega tds os dados]
@@ -32,7 +33,9 @@ class UserTester extends Controller
 		//se precisasse de algo especifico
 		//$user = User::create($request->all());
 		User::create($request->all()); 
-		return redirect()->route('indexy.indexy');
+		return redirect()
+            ->route('indexy.indexy')
+            ->with('success', 'usuario criado com sucesso');
     }
 
     public function index(){
