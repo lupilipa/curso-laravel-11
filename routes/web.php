@@ -5,6 +5,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 //testes curso
+
+Route::get('/users/{user}/edit', [UserTester::class, 'edit'])->name('users.edit');
+
+Route::put('/users/{user}', [UserTester::class, 'update'])->name('users.update');
+
 Route::get('/users', function () {
 	return 'luana';
 });

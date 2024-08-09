@@ -38,6 +38,33 @@ class UserTester extends Controller
             ->with('success', 'usuario criado com sucesso');
     }
 
+    public function edit(string $id){
+        //dd($id);
+        //$user = User::where('id', '=', $id)->first();
+        //$user = User::where('id', $id)->first();
+        if (!$user = User::find($id)) {
+            return redirect()->route('indexy.indexy')->with('message', 'usuario nao encontrado');
+        }
+        return view('tester.usertester.edit', compact('user'));
+    }
+
+    public function update(Request $request, string $id){
+        //dd('atualizando');
+        if (!$user = User::find($id)) {
+            return back()->with('message', 'usuario nao encontrado');
+        }
+        //pode passar coluna por coluna
+        //$user->name = $reqest->name
+        $user->update($request->only([
+            'name',
+            'email',
+        ]));
+
+        return redirect()
+            ->route('indexy.indexy')
+            ->with('success', 'usuario atualizado com sucesso');
+    }
+
     public function index(){
         return 'view3';
     }
