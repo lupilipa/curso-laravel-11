@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tester;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -65,6 +66,30 @@ class UserTester extends Controller
         return redirect()
             ->route('indexy.indexy')
             ->with('success', 'usuario atualizado com sucesso');
+    }
+
+    public function show(string $id){
+        if (!$user = User::find($id)) {
+            return redirect()->route('indexy.indexy')->with('message', 'usuario nao encontrado');
+        }
+        return view('tester.usertester.show', compact('user'));
+    }
+
+    public function destroy(string $id){
+        if (!$user = User::find($id)) {
+            return redirect()
+                ->route('indexy.indexy')
+                ->with('message', 'usuario nao encontrado');
+        }
+
+        if (Auth::user()->id === $user->id) {
+            return back()->with('message', 'amigo vc n pode se deletar');
+        }
+
+        $user->delete();
+        return redirect()
+                ->route('indexy.indexy')
+                ->with('message', 'usuario deletado com sucesso');
     }
 
     public function index(){

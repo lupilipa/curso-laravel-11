@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 //testes curso
 
+Route::get('/users/{user}', [UserTester::class, 'show'])->name('users.show');
+
+Route::delete('/users/{user}/destroy', [UserTester::class, 'destroy'])->name('users.destroy');
+
 Route::get('/users/{user}/edit', [UserTester::class, 'edit'])->name('users.edit');
 
 Route::put('/users/{user}', [UserTester::class, 'update'])->name('users.update');
