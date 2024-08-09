@@ -20,6 +20,10 @@ Route::get('/users4', [UserTester::class, 'index3'])
 
 Route::get('/indexy', [UserTester::class, 'indexy'])->name('indexy.indexy');
 
+Route::get('/users/create', [UserTester::class, 'create'])->name('users.create');
+
+Route::post('/users/create', [UserTester::class, 'store'])->name('users.store');
+
 //testes curso
 
 Route::get('/', function () {

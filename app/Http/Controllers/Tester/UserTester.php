@@ -18,6 +18,23 @@ class UserTester extends Controller
         return view('tester.usertester.indexy', compact('users'));
     }
 
+    public function create(){
+        return view('tester.usertester.create');
+    }
+
+    public function store(Request $request){
+        //return 'cadastrando...';
+        //dd($request->get('name'));
+		//dd($request->all()); //[pega tds os dados]
+		//dd($request->only('_token')); //[pega apenas isso]
+		//dd($request->except('_token')); //[pega tds menos isso]
+		//return User::create($request->all());
+		//se precisasse de algo especifico
+		//$user = User::create($request->all());
+		User::create($request->all()); 
+		return redirect()->route('indexy.indexy');
+    }
+
     public function index(){
         return 'view3';
     }
