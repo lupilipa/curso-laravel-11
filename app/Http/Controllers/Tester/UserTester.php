@@ -59,7 +59,7 @@ class UserTester extends Controller
         //$user->name = $reqest->name
         $data = $request->only('name', 'email');
         if ($request->password) {
-            $data['password'] = bcrypt(request->password);
+            $data['password'] = bcrypt($request->password);
         }
         $user->update($data);
 
