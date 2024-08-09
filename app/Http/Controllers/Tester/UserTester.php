@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tester;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class UserTester extends Controller
 		//return User::create($request->all());
 		//se precisasse de algo especifico
 		//$user = User::create($request->all());
-		User::create($request->all()); 
+		User::create($request->validated()); 
 		return redirect()
             ->route('indexy.indexy')
             ->with('success', 'usuario criado com sucesso');
@@ -48,17 +49,18 @@ class UserTester extends Controller
         return view('tester.usertester.edit', compact('user'));
     }
 
-    public function update(Request $request, string $id){
+    public function update(UpdateUserRequest $request, string $id){
         //dd('atualizando');
         if (!$user = User::find($id)) {
             return back()->with('message', 'usuario nao encontrado');
         }
         //pode passar coluna por coluna
         //$user->name = $reqest->name
-        $user->update($request->only([
-            'name',
-            'email',
-        ]));
+        $data = $request->only('name', 'email');
+        if ($request->password) {
+            $data['password'] = bcrypt(request->password);
+        }
+        $user->update($data);
 
         return redirect()
             ->route('indexy.indexy')
