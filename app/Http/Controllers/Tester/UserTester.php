@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -76,6 +77,10 @@ class UserTester extends Controller
     }
 
     public function destroy(string $id){
+        //if(Gate::denies('is-admin')){
+        //    return back()->with('message', 'vc nao eh admin');
+        //}
+
         if (!$user = User::find($id)) {
             return redirect()
                 ->route('indexy.indexy')
