@@ -1,9 +1,10 @@
 # Curso de Laravel 11
-***
 
 Oiii! <33 😽
 
 Essa é minha branch; meus commits estão separados por conteúdo. 😸
+
+***
 
 **Alguns dos conteúdos que vi no curso:**
 
