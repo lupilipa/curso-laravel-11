@@ -7,7 +7,13 @@ use App\Http\Controllers\Admin\UserController;
 /*Route::get('/user', function () {
     return 'oioioi';
 });**/
-route::get('/users', [UserController::class, 'index'])->name('user.index');
+
+route::post('/users', [UserController::class, 'store'])->name('users.store');
+
+// essa rota ta puxando a action do create
+route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+
+route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 Route::get('/', function () {
     return view('welcome');
