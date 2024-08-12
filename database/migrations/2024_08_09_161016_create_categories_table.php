@@ -13,6 +13,7 @@ return new class extends Migration
     {   // criando a tabela categoria 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100); //->index()->unique();
             $table->timestamps();
         });
     }

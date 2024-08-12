@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 
-/*Route::get('/usuarios', function () {
+/*Route::get('/user', function () {
     return 'oioioi';
 });**/
-route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+route::get('/users', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/', function () {
     return view('welcome');
