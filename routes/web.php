@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\UserController;
     return 'oioioi';
 });**/
 
+route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 route::post('/users', [UserController::class, 'store'])->name('users.store');
 
 // essa rota ta puxando a action do create

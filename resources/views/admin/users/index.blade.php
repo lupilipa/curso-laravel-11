@@ -24,7 +24,10 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>-</td>
+                    <td>
+                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
+                        
+                    </td>
                 </tr>
             <!--mermo q um if else -->
             @empty 
