@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 
 class UserController extends Controller
@@ -25,8 +26,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-    
-        $user =User::create($request->all());
+       // dd($request->all());
+        $user =User::create($request->validated());
         return redirect()->route('users.index')
         ->route('users.index')
         ->with('success', 'usuario criado com sucesso');
@@ -41,15 +42,16 @@ class UserController extends Controller
        }
        return view('admin.users.edit', compact('user'));
     }
-    public function update(Request $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         if (!$user = User::find($id)) {
             return back()->with('message', 'Usuario não encortrado');
         }
-        $user->update($request->only([
-            'name',
-            'email',
-        ]));
+        $data =  $request->only('name', 'email');
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $user->update($data);
 
         return redirect()
         ->route('users.index')

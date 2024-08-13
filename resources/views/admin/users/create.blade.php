@@ -2,7 +2,7 @@
 @section('title', 'criar novo usuario usuarios')
 
 @section('content')
-    <h1>Novo Mano Parceiro Truta Cria</h1>
+    <h1>Novo Usuário</h1>
     <x-alert/>
  
     <form action="{{ route('users.store') }}" method="POST">
