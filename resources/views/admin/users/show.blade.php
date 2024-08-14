@@ -1,4 +1,4 @@
-@extends('admin.users.partials.form')
+@extends('admin.layouts.app')
 @section('title', 'Detalhes do Usuário')
 
 @section('content')
@@ -7,7 +7,7 @@
         <li>Nome: {{ $user->name }}</li>
         <li>E-mail: {{ $user->email }}</li>
     </ul>
-    <x-alert>
+    <x-alert/>
     @can('is-admin')
     <form action="{{ route('users.destroy', $user->id) }}" method="post">
         @csrf

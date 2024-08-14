@@ -72,16 +72,13 @@ class UserController extends Controller
     public function destroy(string $id)
     {
        // if (Gate::denies('is-admin')) {
-           // return back()->with('message', 'vc nao é adm man');
+            //return back()->with('message', 'vc nao é adm man');
         if (!$user = User::find($id)) { 
             return redirect()->route('users.index')->with('message', 'Usuário não encontrado');
         }
         if (Auth::user()->id === $user->id) {
             //esse back so me deu problema
-            //return back()->with('message', 'Você não pode excluir o próprio perfil usuário');
-             return redirect()
-        ->route('users.index')
-        ->with('success', 'Você não pode excluir o próprio perfil usuário');
+            return back()->with('message', 'Você não pode excluir o próprio perfil usuário');
         }
         $user->delete();
         return redirect()
