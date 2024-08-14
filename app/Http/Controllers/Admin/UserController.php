@@ -38,14 +38,10 @@ class UserController extends Controller
     {
         //$user = User::where('id', '=', $id)->first();
        // $user = User::where('id', $id)->first(); ->firtOfail();
-       try {
+
             if (!$user = User::find($id)){
                 return redirect()->route('users.index')->with('message', 'Usuário não encontrado');
             }
-       } catch (\Throwable $th) {
-        //throw $th; 
-        
-       }
       
        return view('admin.users.edit', compact('user'));
     }
@@ -78,7 +74,11 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('message', 'Usuário não encontrado');
         }
         if (Auth::user()->id === $user->id) {
-             return back()->with('message', 'Você não pode excluir o próprio perfil usuário');
+            //esse back so me deu problema
+            //return back()->with('message', 'Você não pode excluir o próprio perfil usuário');
+             return redirect()
+        ->route('users.index')
+        ->with('success', 'Você não pode excluir o próprio perfil usuário');
         }
         $user->delete();
         return redirect()
