@@ -24,5 +24,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('is-admin', function (User $user): bool {
             return $user->isAdm();
         });    
+
+        Gate::define('owner', function (User $user, object $register): bool {
+            return $user->id === $register->user_id;
+        });    
     }
 }

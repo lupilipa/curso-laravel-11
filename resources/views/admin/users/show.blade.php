@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.users.partials.form')
 @section('title', 'Detalhes do Usuário')
 
 @section('content')
