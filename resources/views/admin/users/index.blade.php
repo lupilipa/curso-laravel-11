@@ -10,7 +10,7 @@
             <br>
 
             <a href="{{ route('users.create') }}"
-                    class="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    class="text-black bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-pink-500 dark:hover:bg-pink-700 focus:outline-none dark:focus:ring-black-800">
                     <i class="fa-solid fa-plus" aria-hidden="true"></i>
             Novo Usuário</a>
     </div>
@@ -25,7 +25,7 @@
                         <th scope="col" class="px-6 py-4">Ações</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light dark:text-gray-400">
+                <tbody class="text-pink-600 text-sm font-light dark:text-pink-700">
                     <!--@foreach ($users as $user)
                         <tr>
                             <td>{{ $user->name }}</td>
@@ -35,7 +35,7 @@
                     @endforeach-->
                     <!--vc pode usar o forelse e o empty, pra caso nao haja registro-->
                     @forelse ($users as $user)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <tr class="bg-white border-b dark:bg-pink-200 dark:border-gray-700">
                             <td class="px-6 py-4">{{ $user->name }}</td>
                             <td class="px-6 py-4">{{ $user->email }}</td>
                             <td class="px-6 py-4">
