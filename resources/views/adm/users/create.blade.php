@@ -1,4 +1,4 @@
-@extends('tester.layouts.app')
+@extends('adm.layouts.app')
 
 @section('title', 'Criar Novo usuário')
 
@@ -8,8 +8,9 @@
 				    Novo Usuário
 		    </h2>
     </div>
+
     <form action="{{ route('users.create') }}" method="POST">
         <!--<input type="text" name="_token" value="{{ csrf_token() }}">-->
-        @include('tester.usertester.partials.form')
+        @include('adm.users.partials.form')
     </form>
 @endsection

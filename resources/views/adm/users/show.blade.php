@@ -1,4 +1,4 @@
-@extends('tester.layouts.app')
+@extends('adm.layouts.app')
 
 @section('title', 'Detalhes do usuário')
 

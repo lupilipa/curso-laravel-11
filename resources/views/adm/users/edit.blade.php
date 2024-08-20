@@ -1,4 +1,4 @@
-@extends('tester.layouts.app')
+@extends('adm.layouts.app')
 
 @section('title', 'Editar usuário')
 
@@ -8,10 +8,11 @@
 				    Editar o Usuário {{ $user->name }}
 		    </h2>
     </div>
+
     <form action="{{ route('users.update', $user->id) }}" method="POST">
         <!--<input type="text" name="_token" value="{{ csrf_token() }}">-->
         <!--<input type="text" name="_method" value="PUT">-->
         @method('put')
-        @include('tester.usertester.partials.form')
+        @include('adm.users.partials.form')
     </form>
 @endsection

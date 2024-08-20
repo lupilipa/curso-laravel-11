@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Tester;
+namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
@@ -10,20 +10,20 @@ use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserTester extends Controller
+class UserController extends Controller
 {
 
-    public function indexy(){
+    public function index(){
         //$users = User::all();
         //dd($users);
         //all e get funcionam do mesmo jeito
         //paginação
         $users = User::paginate(20);
-        return view('tester.usertester.indexy', compact('users'));
+        return view('adm.users.index', compact('users'));
     }
 
     public function create(){
-        return view('tester.usertester.create');
+        return view('adm.users.create');
     }
 
     public function store(StoreUserRequest $request){
@@ -37,7 +37,7 @@ class UserTester extends Controller
 		//$user = User::create($request->all());
 		User::create($request->validated()); 
 		return redirect()
-            ->route('indexy.indexy')
+            ->route('users.index')
             ->with('success', 'usuario criado com sucesso');
     }
 
@@ -46,9 +46,9 @@ class UserTester extends Controller
         //$user = User::where('id', '=', $id)->first();
         //$user = User::where('id', $id)->first();
         if (!$user = User::find($id)) {
-            return redirect()->route('indexy.indexy')->with('message', 'usuario nao encontrado');
+            return redirect()->route('users.index')->with('message', 'usuario nao encontrado');
         }
-        return view('tester.usertester.edit', compact('user'));
+        return view('adm.users.edit', compact('user'));
     }
 
     public function update(UpdateUserRequest $request, string $id){
@@ -57,7 +57,7 @@ class UserTester extends Controller
             return back()->with('message', 'usuario nao encontrado');
         }
         //pode passar coluna por coluna
-        //$user->name = $reqest->name
+        //$user->name = $request->name
         $data = $request->only('name', 'email');
         if ($request->password) {
             $data['password'] = bcrypt($request->password);
@@ -65,15 +65,15 @@ class UserTester extends Controller
         $user->update($data);
 
         return redirect()
-            ->route('indexy.indexy')
+            ->route('users.index')
             ->with('success', 'usuario atualizado com sucesso');
     }
 
     public function show(string $id){
         if (!$user = User::find($id)) {
-            return redirect()->route('indexy.indexy')->with('message', 'usuario nao encontrado');
+            return redirect()->route('users.index')->with('message', 'usuario nao encontrado');
         }
-        return view('tester.usertester.show', compact('user'));
+        return view('adm.users.show', compact('user'));
     }
 
     public function destroy(string $id){
@@ -83,7 +83,7 @@ class UserTester extends Controller
 
         if (!$user = User::find($id)) {
             return redirect()
-                ->route('indexy.indexy')
+                ->route('users.index')
                 ->with('message', 'usuario nao encontrado');
         }
 
@@ -93,11 +93,11 @@ class UserTester extends Controller
 
         $user->delete();
         return redirect()
-                ->route('indexy.indexy')
+                ->route('users.index')
                 ->with('message', 'usuario deletado com sucesso');
     }
 
-    public function index(){
+    public function index1(){
         return 'view3';
     }
 
@@ -114,7 +114,7 @@ class UserTester extends Controller
         //    'user' => $user
         //]);
         //vc ta passando array de user, a funçao compact faz isso
-        return view('tester.usertester.index3', compact('user'));
+        return view('adm.users.index1', compact('user'));
     }
 
 }

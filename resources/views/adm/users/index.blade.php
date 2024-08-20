@@ -1,4 +1,4 @@
-@extends('tester.layouts.app')
+@extends('adm.layouts.app')
 
 @section('title', 'Listagem de Usuário')
 
@@ -7,7 +7,7 @@
 		    <h2 class="font-semibold text-xl text-gray-800">
 				    Usuários
 		    </h2>
-		    
+
 		    <a href="{{ route('users.create') }}"
 				    class="text-black bg-blue-700 hover:bg-blue-800">
 				    <i class="fa-solid fa-plus" aria-hidden="true"></i>
@@ -32,7 +32,7 @@
 		                    <td>--</td>
 		                </tr>
 		            @endforeach-->
-		
+
 		            <!--vc pode usar o forelse e o empty, pra caso nao haja registro-->
 		            @forelse ($users as $user)
 		                <tr class="bg-white border-b">
@@ -51,9 +51,8 @@
 		        </tbody>
 		    </table>
 		</div>
-		
+
 		<div class="py-4">
     {{ $users->links() }}
     </div>
-
 @endsection

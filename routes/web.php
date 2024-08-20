@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Tester\UserTester;
+use App\Http\Controllers\Adm\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CheckIfIsAdmin;
 use Illuminate\Support\Facades\Route;
@@ -10,23 +10,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')
     ->prefix('admin')
     ->group(function () {
-        //Route::resource('/users', UserTester::class);
-        Route::get('/users/create', [UserTester::class, 'create'])->name('users.create');
-        Route::post('/users/create', [UserTester::class, 'store'])->name('users.store');
-        Route::get('/users/{user}', [UserTester::class, 'show'])->name('users.show');
-        Route::delete('/users/{user}/destroy', [UserTester::class, 'destroy'])->name('users.destroy')->middleware(CheckIfIsAdmin::class);
-        Route::get('/users/{user}/edit', [UserTester::class, 'edit'])->name('users.edit');
-        Route::put('/users/{user}', [UserTester::class, 'update'])->name('users.update');
-        Route::get('/users', function () {
+        //Route::resource('/users', UserController::class);
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+        Route::delete('/users/{user}/destroy', [UserController::class, 'destroy'])->name('users.destroy')->middleware(CheckIfIsAdmin::class);
+        Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::get('/users1', function () {
             return 'luana';
         });
-        Route::get('/users2', [UserTester::class, 'index'])
-        ->name('users2.index');
-        Route::get('/users3', [UserTester::class, 'index2'])
+        Route::get('/users2', [UserController::class, 'index1'])
+        ->name('users2.index1');
+        Route::get('/users3', [UserController::class, 'index2'])
         ->name('users3.index2');
-        Route::get('/users4', [UserTester::class, 'index3'])
+        Route::get('/users4', [UserController::class, 'index3'])
         ->name('users4.index3');
-        Route::get('/indexy', [UserTester::class, 'indexy'])->name('indexy.indexy');
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 });
 
