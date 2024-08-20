@@ -1,11 +1,11 @@
 @extends('adm.layouts.app')
 
-@section('title', 'Editar usuário')
+@section('title', 'Editar Usuário')
 
 @section('content')
     <div class="py-6">
-		    <h2 class="font-semibold text-xl text-gray-800">
-				    Editar o Usuário {{ $user->name }}
+		    <h2 class="font-semibold text-xl text-gray-600">
+				    Editando: {{ $user->name }} ({{$user->email}})
 		    </h2>
     </div>
 

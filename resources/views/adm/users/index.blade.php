@@ -3,28 +3,26 @@
 @section('title', 'Listagem de Usuário')
 
 @section('content')
-    <div class="py-1 mb-4">
-		    <h2 class="font-semibold text-xl text-gray-800">
-				    Usuários
-		    </h2>
 
-		    <a href="{{ route('users.create') }}"
-				    class="text-black bg-blue-700 hover:bg-blue-800">
-				    <i class="fa-solid fa-plus" aria-hidden="true"></i>
-		    Novo Usuário</a>
+    <div class="py-1 mb-4">
+
+			<x-third-button class="mt-4">
+				<a href="{{ route('users.create') }}">
+		    	Novo Usuário</a>
+            </x-third-button>
     </div>
 
-    <x-alert />
-		<div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
-		    <table class="w-full text-sm text-left text-gray-500">
-		        <thead class="text-xs text-gray-700 uppercase bg-gray-500">
+    <x-alert></x-alert>
+		<div class="bg-purple dark:bg-gray-800 overflow-hidden shadow-sm">
+		    <table class="w-full text-sm text-left text-black">
+		        <thead class="text-sm text-purple-200 bg-gray-500">
 		            <tr>
-		                <th scope="col" class="px-6 py-4">Nome</th>
-		                <th scope="col" class="px-6 py-4">Email</th>
-		                <th scope="col" class="px-6 py-4">Ações</th>
+		                <th scope="col" class="px-6 py-4">NOME</th>
+		                <th scope="col" class="px-6 py-4">E-MAIL</th>
+		                <th scope="col" class="px-6 py-4">AÇÕES</th>
 		            </tr>
 		        </thead>
-		        <tbody class="text-gray-600 text-sm font-light">
+		        <tbody class="text-black text-sm font-light">
 		            <!--@foreach ($users as $user)
 		                <tr>
 		                    <td>{{ $user->name }}</td>
@@ -39,8 +37,13 @@
 		                    <td class="px-6 py-4">{{ $user->name }}</td>
 		                    <td class="px-6 py-4">{{ $user->email }}</td>
 		                    <td class="px-6 py-4">
-		                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-		                        <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
+
+							<x-fourth-button class="mt-4">
+							<a href="{{ route('users.edit', $user->id) }}">Edit</a>
+							</x-fourth-button>
+							<x-fourth-button class="mt-4">
+							<a href="{{ route('users.show', $user->id) }}">Detalhes</a>
+							</x-fourth-button>
 		                    </td>
 		                </tr>
 		            @empty
@@ -53,6 +56,6 @@
 		</div>
 
 		<div class="py-4">
-    {{ $users->links() }}
-    </div>
+    		{{ $users->links() }}
+    	</div>
 @endsection

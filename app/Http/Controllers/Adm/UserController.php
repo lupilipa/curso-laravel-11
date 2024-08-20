@@ -38,7 +38,7 @@ class UserController extends Controller
 		User::create($request->validated()); 
 		return redirect()
             ->route('users.index')
-            ->with('success', 'usuario criado com sucesso');
+            ->with('success', 'Usuário criado com sucesso!');
     }
 
     public function edit(string $id){
@@ -46,7 +46,7 @@ class UserController extends Controller
         //$user = User::where('id', '=', $id)->first();
         //$user = User::where('id', $id)->first();
         if (!$user = User::find($id)) {
-            return redirect()->route('users.index')->with('message', 'usuario nao encontrado');
+            return redirect()->route('users.index')->with('message', 'Usuário não encontrado!');
         }
         return view('adm.users.edit', compact('user'));
     }
@@ -54,7 +54,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, string $id){
         //dd('atualizando');
         if (!$user = User::find($id)) {
-            return back()->with('message', 'usuario nao encontrado');
+            return back()->with('message', 'Usuário não encontrado!');
         }
         //pode passar coluna por coluna
         //$user->name = $request->name
@@ -66,12 +66,12 @@ class UserController extends Controller
 
         return redirect()
             ->route('users.index')
-            ->with('success', 'usuario atualizado com sucesso');
+            ->with('success', 'Usuário atualizado com sucesso!');
     }
 
     public function show(string $id){
         if (!$user = User::find($id)) {
-            return redirect()->route('users.index')->with('message', 'usuario nao encontrado');
+            return redirect()->route('users.index')->with('message', 'Usuário não encontrado!');
         }
         return view('adm.users.show', compact('user'));
     }
@@ -84,17 +84,17 @@ class UserController extends Controller
         if (!$user = User::find($id)) {
             return redirect()
                 ->route('users.index')
-                ->with('message', 'usuario nao encontrado');
+                ->with('message', 'Usuário não encontrado!');
         }
 
         if (Auth::user()->id === $user->id) {
-            return back()->with('message', 'amigo vc n pode se deletar');
+            return back()->with('message', 'Você é administrador! 😅 Não pode se deletar...');
         }
 
         $user->delete();
         return redirect()
                 ->route('users.index')
-                ->with('message', 'usuario deletado com sucesso');
+                ->with('message', 'Usuário deletado com sucesso!');
     }
 
     public function index1(){
