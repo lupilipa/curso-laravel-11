@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - Especializa TI</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title') - Juju do pix</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <header>header default2</header>
-    @yield('content')
-    <footer>footer2</footer>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800">
+
+    @include('layouts.navigation')
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8 sm:py-12 ">
+            @yield('content')
+    </div>
+
 </body>
 </html>

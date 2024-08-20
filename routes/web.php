@@ -14,7 +14,7 @@ route::middleware('auth')
     ->group(function () {
         route::get('/users/create', [UserController::class, 'create'])->name('users.create');
         route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-        route::post('/users', [UserController::class, 'store'])->name('users.store');
+        route::post('/users/store', [UserController::class, 'store'])->name('users.store');
         route::delete('/users/{user}/destroy', [UserController::class, 'destroy'])->name('users.destroy')->middleware(CheckIfIsAdmin::class);
         route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
         route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');

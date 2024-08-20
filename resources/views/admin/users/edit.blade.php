@@ -1,16 +1,18 @@
 @extends('admin.layouts.app')
-@section('title', 'Editar o Usuário')
+
+@section('title', 'Editar usuário')
 
 @section('content')
-    <h1>Editar o Usuário {{ $user->name }}</h1> 
-    @include('admin.alert.partials')
-    <div class="py" 
-    <h2 class="text-xl font-semibold text-black dark:text-white">Editar Usuario</h2>
+    <div class="py-6">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white">
+                    Editar Usuário {{ $user->name }}
+            </h2>
     </div>
-    <form action="{{ route('users.update', $user->id) }}" method="POST">        
+
+    <form action="{{ route('users.update', $user->id) }}" method="POST">
+        <!--<input type="text" name="_token" value="{{ csrf_token() }}">-->
+        <!--<input type="text" name="_method" value="PUT">-->
         @method('put')
         @include('admin.users.partials.form')
     </form>
-    
 @endsection
-
