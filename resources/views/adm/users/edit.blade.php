@@ -1,13 +1,9 @@
-@extends('adm.layouts.app')
+@extends('adm.layouts.app-form')
 
 @section('title', 'Editar Usuário')
+@section('msg', 'Editando: ' . $user->name . ' (' . $user->email . ')')
 
 @section('content')
-    <div class="py-6">
-		    <h2 class="font-semibold text-xl text-gray-600">
-				    Editando: {{ $user->name }} ({{$user->email}})
-		    </h2>
-    </div>
 
     <form action="{{ route('users.update', $user->id) }}" method="POST">
         <!--<input type="text" name="_token" value="{{ csrf_token() }}">-->
@@ -15,4 +11,5 @@
         @method('put')
         @include('adm.users.partials.form')
     </form>
+    
 @endsection

@@ -1,11 +1,11 @@
 @if (session()->has('success'))
-    <div class="p-4 mb-4 text-sm text-purple-800 rounded-lg bg-purple-200">
+    <div class="p-4 mb-4 text-sm text-light-purple-dark rounded-lg bg-light-purple-light">
         {{ session('success') }}
     </div>
 @endif
 
 @if (session()->has('message'))
-    <div class="p-4 mb-4 text-sm text-orange-800 rounded-lg bg-orange-200">
+    <div class="p-4 mb-4 text-sm text-white rounded-lg bg-light-orange">
         {{ session('message') }}
     </div>
 @endif

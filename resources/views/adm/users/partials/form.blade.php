@@ -6,7 +6,6 @@
 <input type="password" name="password" placeholder="Senha">
 <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white dark:text-gray-400 bg-purple-900 dark:bg-gray-800 hover:text-orange-500 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">Enviar</button>-->
 
-
         <!-- Nome -->
         <div>
             <x-input-label-users for="name" :value="__('Nome')" />

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-light-purple dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-light-third dark:text-gray-200 leading-tight">
             {{ __('Página Inicial') }}
         </h2>
     </x-slot>

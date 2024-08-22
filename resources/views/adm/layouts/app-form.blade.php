@@ -23,9 +23,23 @@
                     </div>
                 </header>
 
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-		    @yield('content')
-            </div>
+                <section>
+                <div class="py-10 px-10">
+                    <div class="max-w-7xl mx-auto space-y-6">
+                        <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+                            <div class="max-w-xl">
+                                <div class="mb-4">
+                                    <h2 class="font-semibold text-xl text-gray-800">
+                                            @yield('msg')
+                                    </h2>
+                                </div>
+                            @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
     </div>
 
 </body>

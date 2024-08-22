@@ -15,7 +15,7 @@
     <x-alert></x-alert>
 		<div class="bg-purple dark:bg-gray-800 overflow-hidden shadow-sm">
 		    <table class="w-full text-sm text-left text-black">
-		        <thead class="text-sm text-purple-200 bg-gray-500">
+		        <thead class="text-sm bg-light-purple-dark text-white">
 		            <tr>
 		                <th scope="col" class="px-6 py-4">NOME</th>
 		                <th scope="col" class="px-6 py-4">E-MAIL</th>
