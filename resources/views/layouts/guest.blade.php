@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,15 +16,15 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <!-- aqui voce mexe na cor de fundo -->
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0  bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400 dark:bg-gray-900">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 dark:bg-dark-primary bg-light-primary">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-purple-800" />
+                    <x-application-logo class="w-20 h-20 fill-current text-light-purple dark:text-dark-purple" />
                 </a>
             </div>
 
             <!-- aq vc muda o fundo do form -->
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-gradient-to-r from-purple-800 to-purple-900 dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-light-purple dark:bg-dark-purple shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
