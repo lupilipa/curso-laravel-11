@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <!-- aqui voce mexe na cor de fundo -->
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 dark:bg-dark-primary bg-light-primary">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 dark:bg-dark-third bg-light-primary">
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-light-purple dark:text-dark-purple" />

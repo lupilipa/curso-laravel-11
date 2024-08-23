@@ -12,12 +12,12 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
 
-    <div class="min-h-screen bg-light-primary dark:bg-dark-primary">
+    <div class="min-h-screen bg-light-primary dark:bg-dark-third">
             @include('layouts.navigation')
 
-                <header class="bg-white dark:bg-dark-third shadow">
+                <header class="bg-white dark:bg-dark-primary shadow">
                     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                    <h2 class="font-semibold text-xl text-light-third dark:text-gray-200 leading-tight">
+                    <h2 class="font-semibold text-xl text-light-third dark:text-white leading-tight">
                     @yield('title')
                     </h2>
                     </div>

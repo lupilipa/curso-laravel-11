@@ -5,7 +5,6 @@
 @section('content')
 
     <div class="py-1 mb-4">
-
 			<x-third-button class="mt-4">
 				<a href="{{ route('users.create') }}">
 		    	Novo Usuário</a>

@@ -19,12 +19,13 @@ export default {
 
           // Cores para Modo Escuro
           'dark-primary': '#2C2C2C',
+          'dark-primar': '#3E3D3D',
           'dark-orange': '#FF7043',
           'dark-purple': '#8A2BE2',
           'dark-purple-light': '#B19CD9',
           'dark-purple-dark': '#301934',
           'dark-second': '#B0B0B0',
-          'dark-third': '#000000',
+          'dark-third': '#101010',
         },
       },
     },
