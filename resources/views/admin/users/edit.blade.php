@@ -3,7 +3,7 @@
 @section('title', 'Editar usuário')
 
 @section('content')
-    <div class="py-6">
+    <div class="py-6 mb-4">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-white">
                     Editar Usuário {{ $user->name }}
             </h2>
