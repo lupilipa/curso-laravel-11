@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+<?php /*@extends('admin.layouts.app')
 @section('title', 'Detalhes do Usuário')
 
 @section('content')
@@ -8,12 +8,6 @@
         <li>E-mail: {{ $user->email }}</li>
     </ul>
     <x-alert/>
-    @can('is-admin')
-    <form action="{{ route('users.destroy', $user->id) }}" method="post">
-        @csrf
-        @method('delete')
-        <button type="submit">Excluir</button>
-    </form>
     @endcan
-@endsection
+@endsection */
 

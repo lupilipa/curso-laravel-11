@@ -25,7 +25,7 @@
                         <th scope="col" class="px-6 py-4">Ações</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-800 text-sm font-light dark:black">
+                <tbody class="text-gray-800 text-sm font-medium dark:black">
                     <!--@foreach ($users as $user)
                         <tr>
                             <td>{{ $user->name }}</td>
@@ -39,9 +39,7 @@
                             <td class="px-6 py-4">{{ $user->name }}</td>
                             <td class="px-6 py-4">{{ $user->email }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('users.edit', $user->id) }}">Editar</a>
-                                    <br>
-                                <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
                             </td>
                         </tr>
                     @empty
